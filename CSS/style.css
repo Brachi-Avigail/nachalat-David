@@ -9,7 +9,7 @@ header {
   background: #ffffff;
   padding: 30px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 main {
@@ -69,5 +69,3 @@ footer {
   display: block;
   object-fit: contain; 
 }
-
-
