@@ -49,6 +49,62 @@
             </div>
         </div>
     </section>
+    <div id="image-modal" class="modal">
+        <div class="modal-controls">
+            <button id="zoom-in">+</button>
+            <button id="zoom-out">−</button>
+            <button id="close-modal">✕</button>
+        </div>
+
+        <img class="modal-content" id="modal-img">
+        <p id="modal-caption"></p>
+    </div>
+
+
+    <script>
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("modal-img");
+        const caption = document.getElementById("modal-caption");
+
+        const zoomInBtn = document.getElementById("zoom-in");
+        const zoomOutBtn = document.getElementById("zoom-out");
+        const closeBtn = document.getElementById("close-modal");
+
+        let scale = 1;
+
+        document.querySelectorAll(".image-item img").forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                caption.textContent = img.alt;
+                scale = 1;
+                modalImg.style.transform = `scale(${scale})`;
+            });
+        });
+
+        zoomInBtn.onclick = () => {
+            if (scale < 2.5) {
+                scale += 0.2;
+                modalImg.style.transform = `scale(${scale})`;
+            }
+        };
+
+        zoomOutBtn.onclick = () => {
+            if (scale > 0.6) {
+                scale -= 0.2;
+                modalImg.style.transform = `scale(${scale})`;
+            }
+        };
+
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
+        };
+
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.style.display = "none";
+        };
+    </script>
+
 
 </body>
 
