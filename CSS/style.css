@@ -4,6 +4,58 @@
   padding: 0;
   box-sizing: border-box;
 }
+#accessibility-btn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  font-size: 28px;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#accessibility-menu {
+  position: fixed;
+  left: 20px;
+  bottom: 90px;
+  background: white;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  display: none;
+  z-index: 9999;
+}
+
+#accessibility-menu button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  cursor: pointer;
+}
+.high-contrast {
+  background: black !important;
+  color: yellow !important;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.highlight-links a {
+  text-decoration: underline !important;
+  font-weight: bold;
+}
+
+
+body {
+  margin: 0;
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -14,9 +66,12 @@ body {
 
 /* ----------- HEADER ----------- */
 .main-header {
-  background: #4b5f2e;
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
+  background: rgb(222, 214, 134);
   color: #fff;
-  margin-bottom: 150px;
+  /* margin-bottom: 1px; */
 }
 
 .header-inner {
@@ -28,53 +83,119 @@ body {
   padding: 0 20px;
 }
 
-/* .logo {
-  max-height: 70px;
-  width: auto;
-  object-fit: contain;
-} */
-
 .nav-menu {
   display: flex;
   align-items: center;
 }
 
 .nav-menu a {
-  color: #fff;
+  /* color: #4b5f2e; */
+  color: #242f15;
   margin-left: 18px;
   text-decoration: none;
   font-size: 1rem;
 }
 
-/* ----------- HERO ----------- */
-.hero-section {
-  background-image: url("../Images/תמונה\ של\ מזוזה\ 5.jpg");
-  color: #fff;
+.logo {
+  width: 200px;
+  height: auto;
+}
+#home-recommendation {
+  font-size: 30px;
+  color: #4b5f2e;
   text-align: center;
-  padding: 80px 20px;
+  padding: 60px 20px;
 }
 
-.hero-section h2 {
-  font-size: 2rem;
+.featured-recommendation img {
+  width: 550px;
+  max-width: 90%;
+  border-radius: 12px;
+}
+
+.featured-recommendation p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.more-link {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #242f15;
+}
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  text-align: center;
+}
+
+.image-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+/* שורת תמונות מעל ההמלצה */
+.recommendations-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.recommendations-row img {
+  height: 180px;        /* אותו גובה לכולן */
+  object-fit: cover;   /* חיתוך חכם */
+  /* border-radius: 8px; */
+}
+
+
+.recommendations-row img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+
+
+/* ----------- HERO ----------- */
+.hero-section {
+  height: 500px;
+  background-color: #242f15;
+  background-image: url("../Images/מזוזות.png");
+  background-size: 40% 100%;
+  /* מריחה מלאה */
+  background-position: left;
+  background-repeat: no-repeat;
+
+  margin-top: -80px;
+  /* ← זה הקסם */
+  display: flex;
+  justify-content: flex-start;
+  /* ⬅️ מעביר לימין */
+  align-items: center;
+  padding-right: 60px;
+  /* רווח מהקצה */
+}
+
+.hero-section h1 {
+  color: white;
+  margin-right: 170px;
+  text-align: center;
+  font-size: 26px;
   margin-bottom: 10px;
 }
 
 .hero-section p {
+  color: white;
+  margin-right: 170px;
+  text-align: center;
   font-size: 1.1rem;
   margin-bottom: 18px;
-}
-
-.btn-primary {
-  background: #e67e22;
-  color: #fff;
-  padding: 12px 25px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.btn-primary:hover {
-  background: #d35400;
 }
 
 /* ----------- SECTIONS ----------- */
@@ -130,7 +251,7 @@ h3 {
   max-width: 400px;
   height: 300px;
   display: block;
-   object-fit: cover;
+  object-fit: cover;
 }
 
 #overlay {
@@ -148,7 +269,7 @@ h3 {
 
 #overlay img {
   max-width: 90%;
-  max-height: 90%; 
+  max-height: 90%;
   display: block;
-  object-fit: contain; 
+  object-fit: contain;
 }
